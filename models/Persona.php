@@ -1,9 +1,7 @@
 <?php
 
-
-
 abstract class Persona {
-  private string $nombre;
+  protected string $nombre;
   private string $apellidos;
   private ?DateTime $fechaNacimiento;
 
@@ -11,7 +9,10 @@ function __construct(string $name, ?string $lastName, ?DateTime $birthDay = null
   $this->nombre = $name;
   $this->apellidos = $lastName??'';
   $this->fechaNacimiento = $birthDay;
+  }
 
+  function setNombre (string $nombre): void {
+    $this->nombre = $nombre;
   }
 
 public function getNombre() : string {
@@ -30,6 +31,10 @@ public function getFechaNacimientoString () : string {
   return $this->fechaNacimiento 
           ? $this->fechaNacimiento->format('d-m-Y')
           : '';    
+  }
+
+  static function nombreStringLenght (string $nombre): int {
+    return strlen($nombre);
   }
 
   function mayorEdad () : ?bool {
@@ -52,5 +57,6 @@ public function dimeNombreCompleto() : string {
   return sprintf('%s %s',$this->nombre, $this->apellidos);
   }
 
+  abstract public function tratamientoPersona (string $genero='f') : string;
 
 }

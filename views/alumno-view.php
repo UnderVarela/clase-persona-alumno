@@ -19,6 +19,7 @@
     </thead>
     <tbody>
       <td>
+        <?=$p->tratamientoPersona('m')?>
         <?=$p->getNombre()?>
       </td>
       <td>
@@ -28,6 +29,14 @@
         <?=$p->dimeEdad() ?>
       </td>
     </tbody>
+    <tfoot>
+      <tr>
+        <td colspan="3">
+          El numero de caracteres de <strong><?=$p->getNombre()?></strong>
+          es de <mark><?=Persona::nombreStringLenght($p->getNombre())?></mark>
+        </td>
+      </tr>
+    </tfoot>
   </table>
 </body>
 </html>
