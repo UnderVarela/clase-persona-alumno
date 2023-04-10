@@ -26,7 +26,7 @@
       <?=$p->getApellidos()?>
       </td>
       <td>
-        <?=$p->dimeEdad() ?>
+        <?=Persona::dimeEdad($p->getFechaNacimiento()) ?>
       </td>
     </tbody>
     <tfoot>

@@ -45,10 +45,10 @@ public function getFechaNacimientoString () : string {
     return $anhos>=18;
   }
 
-  function dimeEdad () : ?int {
-    if (!$this->fechaNacimiento) return null;
+   static function dimeEdad (?DateTime $nacimiento) : ?int {
+    if (!$nacimiento) return null;
     $anho_actual = new DateTime();
-    $intervalo = $anho_actual->diff($this->fechaNacimiento);
+    $intervalo = $anho_actual->diff($nacimiento);
     return $intervalo->y;
   }
 
